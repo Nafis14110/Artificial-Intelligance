@@ -1,0 +1,297 @@
+
+Setting environment for using XAMPP for Windows.
+Administrator@DIU c:\xampp
+# cd xampp
+The system cannot find the path specified.
+
+Administrator@DIU c:\xampp
+# cd bin
+The system cannot find the path specified.
+
+Administrator@DIU c:\xampp
+# cd mysql
+
+Administrator@DIU c:\xampp\mysql
+# cd bin\
+
+Administrator@DIU c:\xampp\mysql\bin
+# mysql -u root -p -h 127.0.0.1
+Enter password:
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 1
+Server version: 5.6.24 MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database system management;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'manag
+ement' at line 1
+mysql> create database system_management;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use system_managment;
+ERROR 1049 (42000): Unknown database 'system_managment'
+mysql> use system_management;
+Database changed
+mysql> create table empolyee(empolyee_name varchar(30),street varchar(30),city v
+archar(30));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> create table works(empolyee_name varchar(30),company_name varchar(30),sal
+ary int);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table company(company_name varchar(30),city varchar(30));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> create table manages(emoployee_name varchar(30),manager_name varchar(30))
+;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> show tables;
++-----------------------------+
+| Tables_in_system_management |
++-----------------------------+
+| company                     |
+| empolyee                    |
+| manages                     |
+| works                       |
++-----------------------------+
+4 rows in set (0.01 sec)
+
+mysql> describe emoployee;
+ERROR 1146 (42S02): Table 'system_management.emoployee' doesn't exist
+mysql> describe empoloyee;
+ERROR 1146 (42S02): Table 'system_management.empoloyee' doesn't exist
+mysql> describe empolyee;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| empolyee_name | varchar(30) | YES  |     | NULL    |       |
+| street        | varchar(30) | YES  |     | NULL    |       |
+| city          | varchar(30) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> describe company;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| company_name | varchar(30) | YES  |     | NULL    |       |
+| city         | varchar(30) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> describe manages;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| emoployee_name | varchar(30) | YES  |     | NULL    |       |
+| manager_name   | varchar(30) | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> describe works;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| empolyee_name | varchar(30) | YES  |     | NULL    |       |
+| company_name  | varchar(30) | YES  |     | NULL    |       |
+| salary        | int(11)     | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into empolyee values('Sajeeb','Uttara','Dhaka'),('Partha','Dhanmon
+di','Dhaka');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into empolyee values('Yeakub','Matuail','Dhaka'),('Rafiad','Konaba
+ri','Gazipur');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into works values('Yeakub','ABC',21000),('Rafiad,'XYZ',29000);
+    '>
+    '> ;'"
+    "> ')'"
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that
+corresponds to your MySQL server version for the right syntax to use near 'XYZ',
+29000);
+
+;'"
+')'"
+)' at line 1
+mysql> insert into works values('Yeakub','ABC',21000),('Rafiad','XYZ',29000);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into works values('Sajeeb','ABC',29400),('Partha','ABC',16900);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into empolyee values('Abhijeet','Shiddirgonj','Narayongonj'),('Nir
+ma','Signbord','Narayongonj');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into works values('Nirma','ABC',32400),('Abhijeet','XYZ',20000);
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into empolyee values('Farhan','Azimpur','Dhaka'),('Dipa','Signbord
+','Narayongonj');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select *from works;
++---------------+--------------+--------+
+| empolyee_name | company_name | salary |
++---------------+--------------+--------+
+| Yeakub        | ABC          |  21000 |
+| Rafiad        | XYZ          |  29000 |
+| Sajeeb        | ABC          |  29400 |
+| Partha        | ABC          |  16900 |
+| Nirma         | ABC          |  32400 |
+| Abhijeet      | XYZ          |  20000 |
++---------------+--------------+--------+
+6 rows in set (0.00 sec)
+
+mysql> select *from empolyee;
++---------------+-------------+-------------+
+| empolyee_name | street      | city        |
++---------------+-------------+-------------+
+| Sajeeb        | Uttara      | Dhaka       |
+| Partha        | Dhanmondi   | Dhaka       |
+| Yeakub        | Matuail     | Dhaka       |
+| Rafiad        | Konabari    | Gazipur     |
+| Abhijeet      | Shiddirgonj | Narayongonj |
+| Nirma         | Signbord    | Narayongonj |
+| Farhan        | Azimpur     | Dhaka       |
+| Dipa          | Signbord    | Narayongonj |
++---------------+-------------+-------------+
+8 rows in set (0.00 sec)
+
+mysql> select *from company;
+Empty set (0.00 sec)
+
+mysql> insert into company values('ABC','Dhaka'),('XYZ','Gazipur');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into manages values('Abhijeet','Yeakub'),('Partha','sajeeb');
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select *from company;
++--------------+---------+
+| company_name | city    |
++--------------+---------+
+| ABC          | Dhaka   |
+| XYZ          | Gazipur |
++--------------+---------+
+2 rows in set (0.00 sec)
+
+mysql> select *from manages;
++----------------+--------------+
+| emoployee_name | manager_name |
++----------------+--------------+
+| Abhijeet       | Yeakub       |
+| Partha         | sajeeb       |
++----------------+--------------+
+2 rows in set (0.00 sec)
+
+mysql> select e.empolyee_name,e.street,e.city from empolyee e,works w where e.em
+polyee_name=w.empolyee_name and company_name='ABC' and salary>20000;
++---------------+----------+-------------+
+| empolyee_name | street   | city        |
++---------------+----------+-------------+
+| Sajeeb        | Uttara   | Dhaka       |
+| Yeakub        | Matuail  | Dhaka       |
+| Nirma         | Signbord | Narayongonj |
++---------------+----------+-------------+
+3 rows in set (0.01 sec)
+
+mysql> select e.empolyee_name from empolyee e,works w,company c where e.empolyee
+_name=w.empolyee_name and e.city=c.city and w.company_name=c.company_name;
++---------------+
+| empolyee_name |
++---------------+
+| Sajeeb        |
+| Partha        |
+| Yeakub        |
+| Rafiad        |
++---------------+
+4 rows in set (0.00 sec)
+
+mysql> select e.empolyee_name from empolyee e,emoplyee e2,manages m where e.empo
+lyee_name=m.empolyee_name and m.manager_name=e2.emoplyee_name and e.street=e2.st
+reet and e.city=e2.city;
+ERROR 1146 (42S02): Table 'system_management.emoplyee' doesn't exist
+mysql> select e.empolyee_name from empolyee e,emoplyee e2,manages m where e.empo
+lyee_name=m.employee_name and m.manager_name=e2.emoplyee_name and e.street=e2.st
+reet and e.city=e2.city;
+ERROR 1146 (42S02): Table 'system_management.emoplyee' doesn't exist
+mysql> select e.empolyee_name from empolyee e,emoplyee e2,manages m where e.empo
+lyee_name=m.employee_name and m.manager_name=e2.emoplyee_name and e.street=e2.st
+reet and e.city=e2.city;
+ERROR 1146 (42S02): Table 'system_management.emoplyee' doesn't exist
+mysql> select w.empolyee_name from works w where e.company_name<>'ABC';
+ERROR 1054 (42S22): Unknown column 'e.company_name' in 'where clause'
+mysql> select empolyee_name from works where company_name<>'ABC';
++---------------+
+| empolyee_name |
++---------------+
+| Rafiad        |
+| Abhijeet      |
++---------------+
+2 rows in set (0.00 sec)
+
+mysql> select empolyee_name from works where salary>any(select salary from works
+ where company_name='XYZ');
++---------------+
+| empolyee_name |
++---------------+
+| Yeakub        |
+| Rafiad        |
+| Sajeeb        |
+| Nirma         |
++---------------+
+4 rows in set (0.00 sec)
+
+mysql> select company_name from works group by company_name having sum(salary)<=
+any(select sum(salary) from works group by company_name);
++--------------+
+| company_name |
++--------------+
+| ABC          |
+| XYZ          |
++--------------+
+2 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
